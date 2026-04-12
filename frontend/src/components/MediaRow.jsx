@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
+import {Link} from 'react-router';
 
-const MediaRow = ({item, selectedItem, setSelectedItem}) => {
-  const isSelected = selectedItem?.media_id === item.media_id;
-
+const MediaRow = ({item}) => {
   return (
-    <tr className={isSelected ? 'media-row media-row-selected' : 'media-row'}>
+    <tr className="media-row">
       <td>
-        <button
-          type="button"
-          className="open-single-view-btn"
-          onClick={() => {
-            setSelectedItem(item);
-          }}
-        >
-          Open
-        </button>
+        <Link to="/single" state={{item}} className="open-single-view-btn">
+          Show
+        </Link>
         <img src={item.thumbnail} alt={item.title} />
       </td>
       <td>{item.title}</td>
@@ -37,14 +30,6 @@ MediaRow.propTypes = {
     filesize: PropTypes.number.isRequired,
     media_type: PropTypes.string.isRequired,
   }).isRequired,
-  selectedItem: PropTypes.shape({
-    media_id: PropTypes.number,
-  }),
-  setSelectedItem: PropTypes.func.isRequired,
-};
-
-MediaRow.defaultProps = {
-  selectedItem: null,
 };
 
 export default MediaRow;
