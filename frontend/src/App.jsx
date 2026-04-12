@@ -1,8 +1,14 @@
 import './App.css';
+
+import Home from './components/Home';
+
 const App = props => {
   return (
     <>
-      <h1>My App, {props.name}</h1>
+      <h1 className="hero-title">
+        My App {props.name} - {props.toinen}
+      </h1>
+      <Home />
     </>
   );
 };
