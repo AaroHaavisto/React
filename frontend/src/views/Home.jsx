@@ -1,4 +1,4 @@
-import MediaRow from '../components/MediaRow';
+import MediaItem from '../components/MediaItem';
 import MyComponent from '../components/MyComponent';
 
 const Home = () => {
@@ -6,7 +6,8 @@ const Home = () => {
     {
       media_id: 8,
       user_id: 5,
-      filename: 'https://place-hold.it/1200x800.jpg&text=Pic1&fontsize=120',
+      filename:
+        'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       thumbnail: 'https://placecats.com/200/200',
       filesize: 170469,
       media_type: 'image/jpeg',
@@ -17,7 +18,8 @@ const Home = () => {
     {
       media_id: 9,
       user_id: 7,
-      filename: 'https://place-hold.it/800x600.jpg&text=Pic2&fontsize=72',
+      filename:
+        'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       thumbnail: 'https://placecats.com/300/200',
       filesize: 1002912,
       media_type: 'image/jpeg',
@@ -29,9 +31,9 @@ const Home = () => {
       media_id: 17,
       user_id: 2,
       filename:
-        'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
+        'https://images.unsplash.com/photo-1513245543132-31f507417b26?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       thumbnail:
-        'https://images.unsplash.com/photo-1761839258239-2be2146f1605?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1551272744-19456affaa89?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       filesize: 1236616,
       media_type: 'video/mp4',
       title: 'Bunny',
@@ -58,12 +60,11 @@ const Home = () => {
         </thead>
         <tbody>
           {mediaArray.map(item => (
-            <MediaRow key={item.filename} item={item} />
+            <MediaItem key={item.filename} item={item} />
           ))}
         </tbody>
       </table>
     </>
   );
 };
-
 export default Home;
