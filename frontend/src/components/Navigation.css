@@ -1,10 +1,36 @@
-nav ul {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 1rem 0;
-  padding: 0 2rem;
+nav {
+  padding: 1.2rem 1.4rem 0.4rem;
 }
 
-nav ul li {
+nav ul {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-h);
+  background: color-mix(in oklab, var(--card-bg) 70%, white 30%);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+nav a:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--accent) 18%, white 82%);
+  box-shadow: 0 7px 16px -12px rgba(0, 0, 0, 0.6);
 }

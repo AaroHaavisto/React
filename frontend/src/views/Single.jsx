@@ -12,12 +12,15 @@ const Single = () => {
   console.log('item', item);
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>Takaisin</button>
+    <section className="single-view">
+      <button className="back-button" onClick={() => navigate(-1)}>
+        Takaisin
+      </button>
       <h2>{item.title}</h2>
-      <img src={item.filename} alt={item.title} />
-      <p>{item.description}</p>
-    </div>
+      <p className="single-owner">Owner: {item.username}</p>
+      <img className="single-image" src={item.filename} alt={item.title} />
+      <p className="single-description">{item.description}</p>
+    </section>
   );
 };
 export default Single;

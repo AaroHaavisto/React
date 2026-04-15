@@ -15,6 +15,7 @@ const SingleView = props => {
         Sulje
       </button>
       <img src={item.thumbnail} />
+      <p>Owner: {item.username}</p>
     </dialog>
   );
 };
