@@ -1,6 +1,6 @@
 import './App.css';
 
-import {BrowserRouter, Route, Routes} from 'react-router';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router';
 
 import About from './views/About';
 import Home from './views/Home';
@@ -14,13 +14,15 @@ const App = () => {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-        <Route element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/single" element={<Single />} />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="upload" element={<Upload />} />
+          <Route path="single" element={<Single />} />
+          <Route path="index.html" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>
