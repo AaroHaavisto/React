@@ -33,6 +33,12 @@ const useMedia = () => {
   }, []);
 
   const postMedia = async (file, inputs, token) => {
+    const uploadedFile = file?.data ?? file;
+
+    if (!uploadedFile?.filename) {
+      throw new Error('Upload response did not include filename');
+    }
+
     const fetchOptions = {
       method: 'POST',
       headers: {
@@ -42,7 +48,7 @@ const useMedia = () => {
       body: JSON.stringify({
         title: inputs.title,
         description: inputs.description,
-        filename: file.filename,
+        filename: uploadedFile.filename,
       }),
     };
 
