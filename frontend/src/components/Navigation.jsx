@@ -2,7 +2,7 @@ import './Navigation.css';
 
 import {Link} from 'react-router';
 
-const Navigation = () => {
+const Navigation = ({user}) => {
   return (
     <nav>
       <ul>
@@ -12,18 +12,26 @@ const Navigation = () => {
         <li>
           <Link to="/about">About</Link>
         </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/logout">Logout</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/upload">Upload</Link>
-        </li>
+        {!user && (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        )}
+        {user && (
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        )}
+        {user && (
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        )}
+        {user && (
+          <li>
+            <Link to="/upload">Upload</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

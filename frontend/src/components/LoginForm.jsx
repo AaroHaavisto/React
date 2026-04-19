@@ -1,10 +1,8 @@
-import {useNavigate} from 'react-router';
-import {useAuthentication} from '../hooks/apiHooks';
+import {useUserContext} from '../hooks/contextHooks';
 import useForm from '../hooks/formHooks';
 
 const LoginForm = () => {
-  const navigate = useNavigate();
-  const {postLogin} = useAuthentication();
+  const {handleLogin} = useUserContext();
 
   const initValues = {
     username: '',
@@ -13,17 +11,9 @@ const LoginForm = () => {
 
   const doLogin = async () => {
     try {
-      console.log(inputs);
-      const loginResult = await postLogin(inputs);
-      console.log(loginResult);
-
-      const token = loginResult?.token;
-      if (token) {
-        localStorage.setItem('token', token);
-        navigate('/');
-      }
-    } catch (error) {
-      console.error(error);
+      await handleLogin(inputs);
+    } catch (e) {
+      alert(e.message);
     }
   };
 
