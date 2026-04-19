@@ -35,9 +35,21 @@ const useMedia = () => {
   const postMedia = async (file, inputs, token) => {
     const uploadedFile = file?.data ?? file;
 
-    if (!uploadedFile?.filename) {
-      throw new Error('Upload response did not include filename');
+    if (
+      !uploadedFile?.filename ||
+      !uploadedFile?.media_type ||
+      !uploadedFile?.filesize
+    ) {
+      throw new Error('Upload response did not include required file metadata');
     }
+
+    const mediaPayload = {
+      title: inputs.title,
+      description: inputs.description,
+      filename: uploadedFile.filename,
+      media_type: uploadedFile.media_type,
+      filesize: uploadedFile.filesize,
+    };
 
     const fetchOptions = {
       method: 'POST',
@@ -45,11 +57,7 @@ const useMedia = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        title: inputs.title,
-        description: inputs.description,
-        filename: uploadedFile.filename,
-      }),
+      body: JSON.stringify(mediaPayload),
     };
 
     const mediaResult = await fetchData(
