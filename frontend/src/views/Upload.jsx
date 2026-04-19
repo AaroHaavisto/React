@@ -26,16 +26,18 @@ const Upload = () => {
   const doUpload = async () => {
     try {
       const token = localStorage.getItem('token');
+      console.log('Starting upload...');
 
       const fileData = await postFile(file, token);
       console.log('File uploaded:', fileData);
 
-      await postMedia(fileData, inputs, token);
-      console.log('Media created:', fileData);
+      const mediaData = await postMedia(fileData, inputs, token);
+      console.log('Media created:', mediaData);
 
       navigate('/');
     } catch (e) {
-      console.log(e.message);
+      console.error('Upload error:', e.message);
+      alert('Upload failed: ' + e.message);
     }
   };
 
