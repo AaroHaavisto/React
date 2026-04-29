@@ -11,13 +11,13 @@ const Layout = () => {
   }, []);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[color-mix(in_oklab,var(--card-bg)_88%,white_12%)] text-[var(--text)] shadow-[var(--shadow)]">
       <Navigation user={user} />
 
-      <main>
+      <main className="flex-1 px-4 pb-6 pt-4 md:px-5 md:pb-6 md:pt-5">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 
