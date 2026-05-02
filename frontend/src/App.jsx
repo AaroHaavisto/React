@@ -1,5 +1,3 @@
-import './App.css';
-
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router';
 
 import About from './views/About';

@@ -1,3 +1,5 @@
+import Likes from './Likes';
+
 const SingleView = props => {
   const {item, setSelectedItem} = props;
 
@@ -16,6 +18,7 @@ const SingleView = props => {
       </button>
       <img src={item.thumbnail} />
       <p>Owner: {item.username}</p>
+      <Likes item={item} />
     </dialog>
   );
 };

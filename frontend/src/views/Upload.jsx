@@ -7,7 +7,7 @@ import useForm from '../hooks/formHooks';
 const Upload = () => {
   const [file, setFile] = useState(null);
   const navigate = useNavigate();
-  const {user} = useUserContext();
+  useUserContext();
   const {postFile} = useFile();
   const {postMedia} = useMedia();
 
@@ -23,7 +23,7 @@ const Upload = () => {
     }
   };
 
-  const doUpload = async () => {
+  const doUpload = async formValues => {
     try {
       const token = localStorage.getItem('token');
       console.log('Starting upload...');
@@ -31,7 +31,7 @@ const Upload = () => {
       const fileData = await postFile(file, token);
       console.log('File uploaded:', fileData);
 
-      const mediaData = await postMedia(fileData, inputs, token);
+      const mediaData = await postMedia(fileData, formValues, token);
       console.log('Media created:', mediaData);
 
       navigate('/');

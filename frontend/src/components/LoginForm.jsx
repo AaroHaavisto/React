@@ -9,9 +9,9 @@ const LoginForm = () => {
     password: '',
   };
 
-  const doLogin = async () => {
+  const doLogin = async formValues => {
     try {
-      await handleLogin(inputs);
+      await handleLogin(formValues);
     } catch (e) {
       alert(e.message);
     }

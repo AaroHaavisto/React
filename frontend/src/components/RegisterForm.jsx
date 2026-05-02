@@ -10,9 +10,9 @@ export const RegisterForm = () => {
     password: '',
   };
 
-  const doRegister = async () => {
+  const doRegister = async formValues => {
     try {
-      const registerResult = await postUser(inputs);
+      const registerResult = await postUser(formValues);
       console.log(registerResult);
     } catch (error) {
       console.error(error);

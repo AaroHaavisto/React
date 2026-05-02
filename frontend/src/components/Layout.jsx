@@ -8,7 +8,7 @@ const Layout = () => {
 
   useEffect(() => {
     handleAutoLogin();
-  }, []);
+  }, [handleAutoLogin]);
 
   return (
     <div className="flex min-h-screen flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[color-mix(in_oklab,var(--card-bg)_88%,white_12%)] text-[var(--text)] shadow-[var(--shadow)]">
